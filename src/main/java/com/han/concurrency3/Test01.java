@@ -13,7 +13,6 @@ package com.han.concurrency3;
 public class Test01 {
     private Object lock = new Object();
 
-
     public void method() {
         synchronized (lock) {
             System.out.println("Hello");
