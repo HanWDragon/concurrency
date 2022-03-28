@@ -40,6 +40,30 @@ package com.han.concurrency3;
  * 4. PTHREAD_MUTEX_ADAPTIVE_NP：适应锁，动作最简单的锁类型，仅仅等待解锁后重新竞争。
  * <p>
  * ======================
+ *   https://openjdk.java.net/
+ *   这个就是构造器函数，我们可以看到这个类中有哪些元素
+ *   // initialize the monitor, exception the semaphore, all other fields
+ *   // are simple integers or pointers
+ *   ObjectMonitor() {
+ *     _header       = NULL;
+ *     _count        = 0;
+ *     _waiters      = 0,
+ *     _recursions   = 0;
+ *     _object       = NULL;
+ *     _owner        = NULL;
+ *     _WaitSet      = NULL; <- 这个就是我们说的等待队列
+ *     _WaitSetLock  = 0 ;
+ *     _Responsible  = NULL ;
+ *     _succ         = NULL ;
+ *     _cxq          = NULL ;
+ *     FreeNext      = NULL ;
+ *     _EntryList    = NULL ;
+ *     _SpinFreq     = 0 ;
+ *     _SpinClock    = 0 ;
+ *     OwnerIsThread = 0 ;
+ *     _previous_owner_tid = 0;
+ *   }
+ * ======================
  * <p>
  * 在JDK 1.5之前，我们若想实现线程同步，只能通过synchronized关键字这一种方式来达成；底层，Java也是通过synchronized关键字来做到数据的
  * 原子性维护的；synchronized关键字是JVM实现的一种内置锁，从底层角度来说，这种锁的获取与释放都是由JVM帮助我们隐式实现的。
