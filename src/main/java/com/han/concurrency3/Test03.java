@@ -41,7 +41,7 @@ package com.han.concurrency3;
  * <p>
  * ======================
  *   https://openjdk.java.net/
- *   这个就是构造器函数，我们可以看到这个类中有哪些元素
+ *   这个就是构造器函数，我们可以看到这个类中有哪些元素，我们可以找到对应的源码进行了解。
  *   // initialize the monitor, exception the semaphore, all other fields
  *   // are simple integers or pointers
  *   ObjectMonitor() {
