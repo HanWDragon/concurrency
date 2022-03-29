@@ -18,3 +18,5 @@ com/han/concurrency3/Test04.java
  com.han.concurrency3.Test04
 com/han/concurrency3/Test05.java
  com.han.concurrency3.Test05
+com/han/concurrency3/Test06.java
+ com.han.concurrency3.Test06

@@ -17,18 +17,28 @@ public class Test06 {
     private Object lock2 = new Object();
 
     public void myMethod1() {
-        synchronized (lock1) {
-            synchronized (lock2) {
-                System.out.println("myMethod1 invoked");
+        try {
+            synchronized (lock1) {
+                Thread.sleep(100);
+                synchronized (lock2) {
+                    System.out.println("myMethod1 invoked");
+                }
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
     public void myMethod2() {
-        synchronized (lock2) {
-            synchronized (lock1) {
-                System.out.println("myMethod2 invoked");
+        try {
+            synchronized (lock2) {
+                Thread.sleep(100);
+                synchronized (lock1) {
+                    System.out.println("myMethod2 invoked");
+                }
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -38,29 +48,16 @@ public class Test06 {
         Runnable runnable1 = () -> {
             while (true) {
                 test06.myMethod1();
-
-                try {
-                    Thread.sleep(100);
-                } catch (InterruptedException ex) {
-
-                }
             }
         };
-
-        Thread thread1 = new Thread(runnable1, "myThread1");
 
         Runnable runnable2 = () -> {
             while (true) {
                 test06.myMethod2();
-
-                try {
-                    Thread.sleep(220);
-                } catch (InterruptedException ex) {
-
-                }
             }
         };
 
+        Thread thread1 = new Thread(runnable1, "myThread1");
         Thread thread2 = new Thread(runnable2, "myThread2");
 
         thread1.start();
