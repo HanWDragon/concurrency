@@ -65,7 +65,7 @@ public class Test06 {
     }
 
     /*
-    2022-03-29 11:11:48
+2022-03-29 11:11:48
 Full thread dump Java HotSpot(TM) 64-Bit Server VM (15.0.1+9-18 mixed mode, sharing):
 
 Threads class SMR info:
