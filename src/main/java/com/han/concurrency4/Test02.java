@@ -25,7 +25,7 @@ public class Test02 {
     public static void main(String[] args) {
 
         BoundedContainer boundedContainer = new BoundedContainer();
-        IntStream.range(0, 10).forEach(i -> new Thread(() -> {
+        IntStream.range(0, 20).forEach(i -> new Thread(() -> {
             try {
                 boundedContainer.put("hello");
             } catch (InterruptedException ex) {
@@ -33,7 +33,7 @@ public class Test02 {
             }
         }).start());
 
-        IntStream.range(0, 10).forEach(i -> new Thread(() -> {
+        IntStream.range(0, 20).forEach(i -> new Thread(() -> {
             try {
                 boundedContainer.take();
             } catch (InterruptedException ex) {
@@ -49,9 +49,9 @@ class BoundedContainer {
 
     private final Lock lock = new ReentrantLock();
 
-    private final Condition notEmptyCondition = lock.newCondition();
+    private final Condition fullCondition = lock.newCondition();
 
-    private final Condition notFullCondition = lock.newCondition();
+    private final Condition emptyCondition = lock.newCondition();
 
     private int elementCount; // elements数组中已有的元素数量
 
@@ -65,7 +65,7 @@ class BoundedContainer {
 
         try {
             while (this.elementCount == this.elements.length) {
-                notFullCondition.await();
+                emptyCondition.await();
             }
 
             elements[putIndex] = element;
@@ -78,7 +78,7 @@ class BoundedContainer {
 
             System.out.println("put method: " + Arrays.toString(elements));
 
-            notEmptyCondition.signal();
+            fullCondition.signal();
         } finally {
             this.lock.unlock();
         }
@@ -89,7 +89,7 @@ class BoundedContainer {
 
         try {
             while (0 == this.elementCount) {
-                notEmptyCondition.await();
+                fullCondition.await();
             }
 
             String element = elements[takeIndex];
@@ -104,7 +104,7 @@ class BoundedContainer {
 
             System.out.println("take method: " + Arrays.toString(elements));
 
-            notFullCondition.signal();
+            emptyCondition.signal();
 
             return element;
 
