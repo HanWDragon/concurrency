@@ -28,6 +28,7 @@ package com.han.concurrency4;
  * <p>
  * volatile可以确保对变量写操作的原子性，但不具备排他性
  * 另外的重要一点在于：使用锁可能会导致线程的上下文切换（内核态与用户态之间的切换），但使用volatile并不会出现这种情况
+ * 如果要实现volatile写操作的原子性，那么在等号右侧的赋值变量中就不能出现被多线程所共享的变量，哪怕这个变量也是个volatile也不可以。
  * <p>
  * ================ 这些就是错误示范，这样使用不能保证原子性 ===================
  *
@@ -40,7 +41,6 @@ package com.han.concurrency4;
  * volatile int count = 1;
  * volatile boolean flag = false;
  *
- * 如果要实现volatile写操作的原子性，那么在等号右侧的赋值变量中就不能出现被多线程所共享的变量，哪怕这个变量也是个volatile也不可以。
  * <p>
  * 防止指令重排序与实现变量的可见性都是通过一种手段来实现的：内存屏障（memory barrier）
  * <p>
