@@ -29,15 +29,10 @@ public class Test02 {
                 new Thread(() -> {
                     try {
                         Thread.sleep((long) (Math.random() * 2000));
-
                         int randomInt = new Random().nextInt(500);
-
                         System.out.println("hello " + randomInt);
-
                         cyclicBarrier.await();
-
                         System.out.println("world " + randomInt);
-
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
