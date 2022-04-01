@@ -33,7 +33,11 @@ com/han/concurrency4/Test03.java
  com.han.concurrency4.Test03
 com/han/concurrency5/Test02.java
  com.han.concurrency5.Test02
-com/han/concurrency6/Test01.java
- com.han.concurrency6.Test01
 com/han/concurrency6/Test02.java
  com.han.concurrency6.Test02
+com/han/concurrency6/Test01.java
+ com.han.concurrency6.Test01
+com/han/concurrency7/Test02.java
+ com.han.concurrency7.Test02
+com/han/concurrency7/Test01.java
+ com.han.concurrency7.Test01
