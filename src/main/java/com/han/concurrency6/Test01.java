@@ -31,4 +31,91 @@ public class Test01 {
     public synchronized void increaseCount() {
         ++this.count;
     }
+
+    /*
+    Classfile /Users/hwl/IdeaProjects/concurrency/build/classes/java/main/com/han/concurrency6/Test01.class
+  Last modified 2022年3月31日; size 480 bytes
+  SHA-256 checksum f035861670743b9e27c98f34804b0558569500b4175759cd46f0368bd8246663
+  Compiled from "Test01.java"
+public class com.han.concurrency6.Test01
+  minor version: 0
+  major version: 59
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // com/han/concurrency6/Test01
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 3, attributes: 1
+Constant pool:
+   #1 = Methodref          #2.#3          // java/lang/Object."<init>":()V
+   #2 = Class              #4             // java/lang/Object
+   #3 = NameAndType        #5:#6          // "<init>":()V
+   #4 = Utf8               java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = Fieldref           #8.#9          // com/han/concurrency6/Test01.count:I
+   #8 = Class              #10            // com/han/concurrency6/Test01
+   #9 = NameAndType        #11:#12        // count:I
+  #10 = Utf8               com/han/concurrency6/Test01
+  #11 = Utf8               count
+  #12 = Utf8               I
+  #13 = Utf8               Code
+  #14 = Utf8               LineNumberTable
+  #15 = Utf8               LocalVariableTable
+  #16 = Utf8               this
+  #17 = Utf8               Lcom/han/concurrency6/Test01;
+  #18 = Utf8               getCount
+  #19 = Utf8               ()I
+  #20 = Utf8               increaseCount
+  #21 = Utf8               SourceFile
+  #22 = Utf8               Test01.java
+{
+  public com.han.concurrency6.Test01();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 21: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/han/concurrency6/Test01;
+
+  public synchronized int getCount();
+    descriptor: ()I
+    flags: (0x0021) ACC_PUBLIC, ACC_SYNCHRONIZED
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #7                  // Field count:I
+         4: ireturn
+      LineNumberTable:
+        line 26: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lcom/han/concurrency6/Test01;
+
+  public synchronized void increaseCount();
+    descriptor: ()V
+    flags: (0x0021) ACC_PUBLIC, ACC_SYNCHRONIZED
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: dup
+         2: getfield      #7                  // Field count:I
+         5: iconst_1
+         6: iadd
+         7: putfield      #7                  // Field count:I
+        10: return
+      LineNumberTable:
+        line 32: 0
+        line 33: 10
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Lcom/han/concurrency6/Test01;
+}
+SourceFile: "Test01.java"
+
+     */
 }
