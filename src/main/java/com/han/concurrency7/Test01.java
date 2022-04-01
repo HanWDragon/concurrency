@@ -23,7 +23,7 @@ public class Test01 {
             return randomNumber;
         };
 
-        FutureTask<Integer> futureTask = new FutureTask(callable);
+        FutureTask<Integer> futureTask = new FutureTask<>(callable);
 
         new Thread(futureTask).start();
 
