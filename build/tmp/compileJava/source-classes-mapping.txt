@@ -6,8 +6,8 @@ com/han/concurrency3/Test01.java
  com.han.concurrency3.Test01
 com/han/concurrency2/ThreadTest1.java
  com.han.concurrency2.ThreadTest1
-com/han/concurrency3/Test03.java
- com.han.concurrency3.Test03
+com/han/concurrency8/Test01.java
+ com.han.concurrency8.Test01
 com/han/concurrency1/MyObject.java
  com.han.concurrency1.MyObject
 com/han/concurrency3/Test06.java
@@ -45,5 +45,7 @@ com/han/concurrency7/Test03.java
  com.han.concurrency7.Test03
 com/han/concurrency8/Test02.java
  com.han.concurrency8.Test02
-com/han/concurrency8/Test01.java
- com.han.concurrency8.Test01
+com/han/concurrency9/Test01.java
+ com.han.concurrency9.Test01
+com/han/concurrency3/Test03.java
+ com.han.concurrency3.Test03
